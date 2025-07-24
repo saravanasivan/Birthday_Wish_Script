@@ -1,0 +1,47 @@
+import pandas as pd
+from datetime import datetime
+import pywhatkit
+import time
+
+def send_whatsapp_message_now(mobile_number, message):
+    phone = f"+91{str(mobile_number).strip()}"  # Change +91 if you're not in India
+
+    try:
+        # Instant send without scheduling — sends the message immediately
+        pywhatkit.sendwhatmsg_instantly(
+            phone_no=phone,
+            message=message,
+            wait_time=10,      # Time to allow WhatsApp web to load
+            tab_close=True,
+            close_time=5       # Seconds before tab closes
+        )
+        print(f"✅ Message sent to {phone}")
+        time.sleep(60)  # Wait 60 seconds before sending next message
+    except Exception as e:
+        print(f"❌ Failed to send message to {phone}: {e}")
+
+def send_birthday_wishes(file_path):
+    # Read Excel file
+    df = pd.read_excel(file_path)
+
+    # Parse 'Date of Birth' from DD-MM-YY format
+    df['Date of Birth'] = pd.to_datetime(df['Date of Birth'], format="%d-%m-%y", errors='coerce')
+
+    # Get today's day and month
+    today = datetime.today()
+    today_day = today.day
+    today_month = today.month
+
+    for _, row in df.iterrows():
+        dob = row['Date of Birth']
+        if pd.isnull(dob):
+            continue
+
+        if dob.day == today_day and dob.month == today_month:
+            name = row['Name']
+            mobile = row['Mobile Number']
+            message = f"🎉 Happy Birthday, {name}! Have a fantastic day! 🎂"
+            send_whatsapp_message_now(mobile, message)
+
+# Run the function
+send_birthday_wishes("birthdays.xlsx")
