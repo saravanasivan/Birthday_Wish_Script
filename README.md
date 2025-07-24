@@ -1,17 +1,17 @@
-# 📄 README.md — Birthday WhatsApp Automation
+# README.md — Birthday WhatsApp Automation
 
-## 🎯 Project Overview
+## Project Overview
 
 This Python script automates sending **birthday wishes via WhatsApp Web** using contact information stored in an Excel file. It checks each entry for birthdays that match today's date and sends a personalized message through WhatsApp Web.
 
-## 📁 File Structure
+## File Structure
 
 BirthdayWish/
 ├── birthdays.xlsx        # Excel file with name, DOB (DD-MM-YY), and phone number
 ├── wish by whatsapp.py   # Main Python script
 └── README.md             # This file
 
-## ✅ Features
+## Features
 
 - Reads an Excel file with columns: `Name`, `Date of Birth`, `Mobile Number`
 - Sends instant WhatsApp messages using `pywhatkit`
@@ -19,13 +19,13 @@ BirthdayWish/
 - 60-second delay between each message to prevent blocking
 - Closes WhatsApp Web tab automatically after sending
 
-## 📦 Requirements
+## Requirements
 
 - Python 3.7+
 - `pywhatkit` library
 - WhatsApp Web logged in on your default browser (Chrome/Edge)
 
-## 🔧 Installation
+## Installation
 
 ### 1. Install Python packages
 
@@ -40,7 +40,7 @@ BirthdayWish/
 
 - `Date of Birth` format must be: **DD-MM-YY**
 
-## ▶️ Usage
+## Usage
 
 Run the script using:
 
@@ -50,13 +50,13 @@ Run the script using:
 - Keep your internet connection stable.
 - A browser tab will open, send the message, and close automatically.
 
-## 📝 Notes
+## Notes
 
 - Works best with **Chrome** or **Edge** browsers.
 - Assumes mobile numbers are **Indian (+91)**. Modify the script if using a different country code.
 - This tool is ideal for **personal use**. For high-volume or business messaging, use WhatsApp Business API.
 
-## 📅 Automation Tip
+## Automation Tip
 
 To run this script every day automatically:
 
@@ -64,12 +64,12 @@ To run this script every day automatically:
 1. Open **Task Scheduler**
 2. Create Basic Task → Choose Daily → Select script via `pythonw` or `.bat` file
 
-## 💡 Future Improvements
+## Future Improvements
 
 - Support for sending images/files
 - Logging system
 - GUI to manage contact list
 
-## 📬 Contact
+## Contact
 
 If you have issues or need customization, feel free to open an issue or request features!
